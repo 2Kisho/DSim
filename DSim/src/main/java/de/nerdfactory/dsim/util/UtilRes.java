@@ -8,6 +8,6 @@ public class UtilRes {
 	
 	public static String getString(String key) {
 		ResourceBundle bundle = ResourceBundle.getBundle(BASE_NAME);
-		return bundle.getString(key);
+		return bundle.getString(key); 
 	}
 }
