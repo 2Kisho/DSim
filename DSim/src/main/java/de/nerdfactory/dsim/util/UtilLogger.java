@@ -12,6 +12,10 @@ import java.io.StringWriter;
  */
 public class UtilLogger {
 
+    private UtilLogger() {
+        throw new IllegalStateException("No instance for you!");
+    }
+    
     /**
      * Gets a stacktrace from a given {@link Throwable}.
      * 
