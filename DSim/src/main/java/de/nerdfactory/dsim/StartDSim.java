@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.nerdfactory.dsim.skat.Card;
 import de.nerdfactory.dsim.skat.CardDeckBuilderImpl;
+import de.nerdfactory.dsim.ui.DSimFrame;
 
 public class StartDSim {
 
@@ -11,5 +12,6 @@ public class StartDSim {
         List<Card> cards = new CardDeckBuilderImpl().setThirtyTwo(true).build();
         cards.forEach(e -> System.out.println(e));
         System.out.println(cards.size());
+        DSimFrame frame = new DSimFrame();
     }
 }
