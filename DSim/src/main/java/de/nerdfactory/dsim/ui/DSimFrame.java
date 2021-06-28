@@ -4,10 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
+import de.nerdfactory.dsim.ui.menu.DSimMenuBuilder;
 import de.nerdfactory.dsim.util.UtilRes;
 
 /**
@@ -20,7 +18,6 @@ import de.nerdfactory.dsim.util.UtilRes;
 public class DSimFrame {
 
 	private final JFrame frame;
-	private JMenuBar menubar;
 	private TabbedPanel tabbedPanel;
 
 	/**
@@ -51,23 +48,8 @@ public class DSimFrame {
 	}
 
 	private void initMenubar() {
-		menubar = new JMenuBar();
-		JMenu menu = new JMenu(UtilRes.getString(DSimFrame.class, "menuData"));
-		JMenuItem menuItemExit = new JMenuItem(UtilRes.getString(DSimFrame.class, "menuItemExit"));
-		menuItemExit.addActionListener(e -> dispose());
-		menu.add(menuItemExit);
-		menubar.add(menu);
-		
-		JMenu menuAbout = new JMenu("?");
-		JMenuItem menuItemAbout = new JMenuItem(UtilRes.getString(DSimFrame.class, "about"));
-		menuItemAbout.addActionListener(e -> openAbout());
-		menuAbout.add(menuItemAbout);
-		menubar.add(menuAbout);
-		
-		frame.setJMenuBar(menubar);
+		DSimMenuBuilder builder = new DSimMenuBuilder(this);
+		this.frame.setJMenuBar(builder.build());
 	}
 	
-	private void openAbout() {
-		
-	}
 }
