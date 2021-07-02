@@ -15,41 +15,33 @@ import de.nerdfactory.dsim.util.UtilRes;
  * @author basti
  *
  */
-public class DSimFrame {
-
-	private final JFrame frame;
+public class DSimFrame extends JFrame {
+	
+	private static final long serialVersionUID = 267252436684046767L;
 	private TabbedPanel tabbedPanel;
 
 	/**
 	 * Creates a new {@link DSimFrame}.
 	 */
 	public DSimFrame() {
-		this.frame = new JFrame();
 		this.tabbedPanel = new TabbedPanel();
 		init();
 	}
 
-	/**
-	 * @see JFrame#dispose()
-	 */
-	public void dispose() {
-		frame.dispose();
-	}
-
 	private void init() {
 		initMenubar();
-		frame.setLayout(new BorderLayout());
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle(UtilRes.getString(DSimFrame.class, "title"));
-		frame.setSize(new Dimension(800, 600));
-		frame.setLocationRelativeTo(null);
-		frame.add(tabbedPanel);
-		frame.setVisible(true);
+		setLayout(new BorderLayout());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle(UtilRes.getString(DSimFrame.class, "title"));
+		setSize(new Dimension(800, 600));
+		setLocationRelativeTo(null);
+		add(tabbedPanel);
+		setVisible(true);
 	}
 
 	private void initMenubar() {
 		DSimMenuBuilder builder = new DSimMenuBuilder(this);
-		this.frame.setJMenuBar(builder.build());
+		setJMenuBar(builder.build());
 	}
 	
 }

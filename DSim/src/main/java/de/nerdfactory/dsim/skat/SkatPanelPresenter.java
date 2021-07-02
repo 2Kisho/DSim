@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import javax.swing.JPanel;
 
-import de.nerdfactory.dsim.ui.DSimPanel;
+import de.nerdfactory.dsim.ui.Tab;
 import de.nerdfactory.dsim.util.UtilRes;
 
-public class SkatPanelPresenter implements DSimPanel {
+public class SkatPanelPresenter implements Tab {
 
 	private final SkatPanelModel model;
 	private final SkatPanelView view;
@@ -22,16 +22,12 @@ public class SkatPanelPresenter implements DSimPanel {
 	}
 
 	@Override
-	public Optional<String> getTitle() {
-		return Optional.of(UtilRes.getString(SkatPanelPresenter.class, "title"));
+	public String getTitle() {
+		return UtilRes.getString(SkatPanelPresenter.class, "title");
 	}
 
 	@Override
-	public void dispose() {
-	}
-
-	@Override
-	public JPanel getJPanel() {
+	public JPanel getPanel() {
 		return view;
 	}
 }
