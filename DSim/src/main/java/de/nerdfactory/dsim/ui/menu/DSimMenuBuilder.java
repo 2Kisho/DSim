@@ -4,6 +4,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import de.nerdfactory.dsim.ui.AboutDialog;
 import de.nerdfactory.dsim.ui.DSimFrame;
 import de.nerdfactory.dsim.util.UtilRes;
 
@@ -50,6 +51,6 @@ public class DSimMenuBuilder {
 	}
 
 	private void openAbout() {
-		
+		new AboutDialog(frame);
 	}
 }
