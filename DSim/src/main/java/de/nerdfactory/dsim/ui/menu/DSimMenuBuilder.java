@@ -4,6 +4,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import de.nerdfactory.dsim.skat.ui.SkatPanel;
 import de.nerdfactory.dsim.ui.AboutDialog;
 import de.nerdfactory.dsim.ui.DSimFrame;
 import de.nerdfactory.dsim.util.UtilRes;
@@ -40,6 +41,12 @@ public class DSimMenuBuilder {
 		menuItemExit.addActionListener(e -> frame.dispose());
 		menu.add(menuItemExit);
 		menubar.add(menu);
+		
+		JMenu menuCard = new JMenu("Cards");
+		JMenuItem menuItemSkat = new JMenuItem("Skat");
+		menuCard.add(menuItemSkat);
+		menuItemSkat.addActionListener(e -> frame.addTab(new SkatPanel()));
+		menubar.add(menuCard);
 
 		JMenu menuAbout = new JMenu("?");
 		JMenuItem menuItemAbout = new JMenuItem(UtilRes.getString(DSimMenuBuilder.class, "about"));

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Window;
 
 import javax.swing.JDialog;
+import javax.swing.JTextArea;
 
 import de.nerdfactory.dsim.util.UtilRes;
 
@@ -21,9 +22,13 @@ public class AboutDialog extends JDialog {
 		init();
 		setVisible(true);
 	}
-	
+
 	private void init() {
 		setLayout(new BorderLayout());
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setText("This software has no purpose as just to have fun with programming.");
+		add(textArea);
 		pack();
 	}
 }
