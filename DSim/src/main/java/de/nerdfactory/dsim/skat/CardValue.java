@@ -40,6 +40,11 @@ public enum CardValue {
 	/**
 	 * 7
 	 */
-	SEVEN;
+	SEVEN,
+	
+	/**
+	 * 6
+	 */
+	SIX;
 	
 }

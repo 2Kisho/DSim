@@ -15,6 +15,9 @@ public class CardDeckBuilder {
 	public List<Card> build() {
 		List<Card> cards = new ArrayList<>();
 		for (CardValue value : CardValue.values()) {
+			if (deckSize.equals(CardDeckSize.THIRTY_TWO) && value.equals(CardValue.SIX)) {
+				continue;
+			}
 			for (CardColor color : CardColor.values()) {
 				cards.add(new Card(color, value));
 			}
