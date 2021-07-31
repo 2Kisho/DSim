@@ -16,7 +16,7 @@ import de.nerdfactory.dsim.util.UtilRes;
  *
  */
 public class DSimFrame extends JFrame {
-	
+
 	private static final long serialVersionUID = 267252436684046767L;
 	private TabbedPanel tabbedPanel;
 
@@ -43,5 +43,9 @@ public class DSimFrame extends JFrame {
 		DSimMenuBuilder builder = new DSimMenuBuilder(this);
 		setJMenuBar(builder.build());
 	}
-	
+
+	public void addTab(Tab tab) {
+		tabbedPanel.addTab(tab);
+	}
+
 }
