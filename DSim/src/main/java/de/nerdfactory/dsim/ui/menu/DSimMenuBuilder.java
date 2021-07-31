@@ -4,7 +4,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import de.nerdfactory.dsim.skat.ui.SkatPanel;
+import de.nerdfactory.dsim.skat.ui.SkatModel;
+import de.nerdfactory.dsim.skat.ui.SkatPresenter;
+import de.nerdfactory.dsim.skat.ui.SkatView;
 import de.nerdfactory.dsim.ui.AboutDialog;
 import de.nerdfactory.dsim.ui.DSimFrame;
 import de.nerdfactory.dsim.util.UtilRes;
@@ -42,10 +44,10 @@ public class DSimMenuBuilder {
 		menu.add(menuItemExit);
 		menubar.add(menu);
 		
-		JMenu menuCard = new JMenu("Cards");
-		JMenuItem menuItemSkat = new JMenuItem("Skat");
+		JMenu menuCard = new JMenu(UtilRes.getString(DSimMenuBuilder.class, "cards"));
+		JMenuItem menuItemSkat = new JMenuItem(UtilRes.getString(DSimMenuBuilder.class, "skat"));
 		menuCard.add(menuItemSkat);
-		menuItemSkat.addActionListener(e -> frame.addTab(new SkatPanel()));
+		menuItemSkat.addActionListener(e -> openSkat());
 		menubar.add(menuCard);
 
 		JMenu menuAbout = new JMenu("?");
@@ -55,6 +57,14 @@ public class DSimMenuBuilder {
 		menubar.add(menuAbout);
 
 		return menubar;
+	}
+	
+	private void openSkat() {
+		SkatModel model = new SkatModel();
+		SkatView view = new SkatView();
+		SkatPresenter presenter = new SkatPresenter(model, view);
+		presenter.present();
+		frame.addTab(view);
 	}
 
 	private void openAbout() {
